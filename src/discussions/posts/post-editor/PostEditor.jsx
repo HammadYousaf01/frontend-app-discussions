@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {
   Button, Form, Spinner, StatefulButton,
 } from '@openedx/paragon';
-import { Help, Post } from '@openedx/paragon/icons';
 import { Formik } from 'formik';
 import { isEmpty } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +14,9 @@ import * as Yup from 'yup';
 
 import { useIntl } from '@edx/frontend-platform/i18n';
 import { AppContext } from '@edx/frontend-platform/react';
+
+import QuestionMarkIcon from './question-mark-icon.svg';
+import DiscussionIcon from '../post/chat-icon.svg';
 
 import { TinyMCEEditor } from '../../../components';
 import FormikErrorFeedback from '../../../components/FormikErrorFeedback';
@@ -258,13 +260,13 @@ const PostEditor = ({
             value="discussion"
             selected={values.postType === 'discussion'}
             type={intl.formatMessage(messages.discussionType)}
-            icon={<Post />}
+            icon={<img src={DiscussionIcon} aria-hidden="true" />}
           />
           <PostTypeCard
             value="question"
             selected={values.postType === 'question'}
             type={intl.formatMessage(messages.questionType)}
-            icon={<Help />}
+            icon={<img src={QuestionMarkIcon} aria-hidden="true" />}
           />
         </Form.RadioSet>
         <div className="d-flex flex-row my-4.5 justify-content-between">
