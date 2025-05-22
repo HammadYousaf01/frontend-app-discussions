@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {
   Collapsible, Form, Icon, Spinner,
 } from '@openedx/paragon';
-import { Check, Tune } from '@openedx/paragon/icons';
+import { Check } from '@openedx/paragon/icons';
 import classNames from 'classnames';
 import { capitalize, isEmpty, toString } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,6 +28,8 @@ import {
 } from '../data';
 import { selectThreadFilters, selectThreadSorting } from '../data/selectors';
 import messages from './messages';
+
+import FilterIcon from './filter-icon.svg';
 
 export const ActionItem = React.memo(({
   id,
@@ -196,10 +198,10 @@ const PostFilterBar = () => {
         </span>
         <span>
           <Collapsible.Visible whenClosed>
-            <Icon src={Tune} />
+            <img src={FilterIcon} alt="FilterIcon" aria-hidden="true" />
           </Collapsible.Visible>
           <Collapsible.Visible whenOpen>
-            <Icon src={Tune} />
+            <img src={FilterIcon} alt="FilterIcon" aria-hidden="true" />
           </Collapsible.Visible>
         </span>
       </Collapsible.Trigger>

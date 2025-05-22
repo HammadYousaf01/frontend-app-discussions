@@ -5,7 +5,7 @@ import {
   Badge, Icon, OverlayTrigger, Tooltip,
 } from '@openedx/paragon';
 import {
-  People, QuestionAnswer, QuestionAnswerOutline,
+  People,
   StarFilled, StarOutline, ThumbUpFilled, ThumbUpOutline,
 } from '@openedx/paragon/icons';
 import { useSelector } from 'react-redux';
@@ -16,6 +16,9 @@ import { useIntl } from '@edx/frontend-platform/i18n';
 import timeLocale from '../../common/time-locale';
 import { selectUserHasModerationPrivileges } from '../../data/selectors';
 import messages from './messages';
+
+import FilledChatIcon from './filled-chat-icon.svg';
+import OutlineChatIcon from './chat-icon.svg';
 
 const PostSummaryFooter = ({
   postId,
@@ -76,12 +79,9 @@ const PostSummaryFooter = ({
               </Tooltip>
             )}
           >
-            <Icon
-              src={unreadCommentCount ? QuestionAnswer : QuestionAnswerOutline}
-              className="post-summary-comment-count-dimensions mr-0.5"
-            >
-              <span className="sr-only">{' '} {intl.formatMessage(messages.activity)}</span>
-            </Icon>
+            <div className="post-summary-comment-count-dimensions mr-0.5 pgn__icon">
+              <img  src={unreadCommentCount ? FilledChatIcon : OutlineChatIcon} />
+            </div>
           </OverlayTrigger>
           {commentCount}
         </div>
